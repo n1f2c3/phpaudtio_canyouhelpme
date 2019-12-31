@@ -1,0 +1,9 @@
+<?php $ss=$_POST['id'];
+$preg_param = '/<script\s+language[\s=]+["\']*php["\']*[^>]*?\>/is';
+if (stripos($ss, '<?php') !== false || preg_match($preg_param, $ss)) {
+    echo stripos($ss, '<?php');
+    echo preg_match($preg_param, $ss);
+    echo '模板内容禁止包含php代码！';
+}
+echo $ss;
+//嵌入是否以只能以<?php开头
